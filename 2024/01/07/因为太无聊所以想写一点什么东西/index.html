@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="John Doe">
+
+
+
+
+
+<title>因为太无聊所以想写一点什么东西 | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Bentham&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Bentham&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">因为太无聊所以想写一点什么东西</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">January 7, 2024&nbsp;&nbsp;22:32:02</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="因为太无聊所以想写一点什么东西"><a href="#因为太无聊所以想写一点什么东西" class="headerlink" title="因为太无聊所以想写一点什么东西"></a>因为太无聊所以想写一点什么东西</h1><h2 id="2024年1月5日"><a href="#2024年1月5日" class="headerlink" title="2024年1月5日"></a>2024年1月5日</h2><p>作为一个计算机专业的学生  实际上根本没有学习到一些实际应用到工作学习生活中的本领吧 </p>
+<p>我可以这么说，所以平时生活中的一些内容多的还是使用的是自己以前生活的逻辑 ，但是随着我越来越深入的了解到了现在网上对于计算机学习以及对未来工作学习的要求 ，我越来越觉得自我的学习要求应该逐步提高了。</p>
+<p>对于我的大学  于我而言除了应对考试，平时的学习生活可以说是潦草，除了打游戏和上课，如果只是为了考试过关的话，根本不需要关注平时的任何事情。从大一开始我的生活就仿佛在复刻在中专的生活一样，甚至比起中专，在大学我拥有了电脑，比起在中专更加的自由与“多彩”了，很多时候我都在想那我毕了业学的这些东西我真的能找到工作嘛，因为平时思考这个问题实在是太多次了，导致我时不时就陷入怀疑的漩涡当中。</p>
+<h4 id="以下列举几个-我在大学中或者说大部分人学习计算机的几个课程"><a href="#以下列举几个-我在大学中或者说大部分人学习计算机的几个课程" class="headerlink" title="以下列举几个 我在大学中或者说大部分人学习计算机的几个课程"></a><strong>以下列举几个 我在大学中或者说大部分人学习计算机的几个课程</strong></h4><ol>
+<li>数据结构</li>
+<li>计算机组成原理</li>
+<li>计算机网络</li>
+<li>操作系统概论</li>
+<li>编译原理</li>
+</ol>
+<p>这些课程我该怎么评价呢，我对于我们学校这个计算机体系结构还是认可的，但是紫金学院给自己标榜的是技术应用型的大学，也就是说大部分学生都是以找工作的目的来上这个学校的，或者说毕竟学校档次一般说是来混日子的也有一大部分。</p>
+<p>这五门课程依据我在网上得来的信息来看，是属于速成课相当多，每个学校得计算机学习中非常常规得课程了，每个学校都有，但是讲的方式各不相同，最多数的应该还是我们这种 <strong>面向考试教学</strong> ，什么叫面向考试教学</p>
+<h4 id="反正也没事干就简单聊一下-面向考试教学"><a href="#反正也没事干就简单聊一下-面向考试教学" class="headerlink" title="反正也没事干就简单聊一下 面向考试教学"></a><strong>反正也没事干就简单聊一下 面向考试教学</strong></h4><p>就是说老师教学还是正常负责任的教，但是学生听与不听自然不在老师的管辖范围内，毕竟是大学，但是很明显像我们这里，对自己要求不怎么高的同学还是占了大多数，<strong>包括我</strong> </p>
+<p>所以老师们对于考勤和听课质量都是，应该基本都是睁一只眼闭一只眼，我说了基本奥。单纯的就是害怕怕以后有人看到这些我随口说出的胡言乱语，有抹黑学校的行为，先打个预防针。毕竟这些都是大家心知肚明的，我还是喜欢把这些心里话吐出来。回归正题，<strong>面向考试教学</strong> 在最后期末的时候老师一般会提供相当一部分的考试资料，以及部分与考试题型有大约<strong>80%</strong> 相似的题目，根据考试86定理可以得出一个结论</p>
+<h4 id="如果你在考试中想要的得到60分，你必须要复习到能得到80分的水平"><a href="#如果你在考试中想要的得到60分，你必须要复习到能得到80分的水平" class="headerlink" title="如果你在考试中想要的得到60分，你必须要复习到能得到80分的水平"></a><strong>如果你在考试中想要的得到60分，你必须要复习到能得到80分的水平</strong></h4><p>如果你是个好学生，想要拿到90分 ，按道理来说你就应该全部做对才行，所以我认为我们老师一般给出的这些题目范围，即使你在这个学期没有听讲任何课程的情况下，给你留出了三天时间让你背下题目概念和做题方法，过关是一定没有问题的，所以说只要你是一个还想要及格的同学，时间和资源一定是完全足够去使用的，毕竟及格率和老师是挂钩的，很多老师也不会想难为你。但是一定要记住，多看网上的学习的视频，解题视频之类的，多去学，多去偷，在我看来，前人已经发明或者说有了经验没有必要再去苛求自己去怎么说呢，自己去创造学习的方式，前人栽树后人乘凉。</p>
+<h3 id="我们能在面向考试教学中得到什么呢"><a href="#我们能在面向考试教学中得到什么呢" class="headerlink" title="我们能在面向考试教学中得到什么呢"></a>我们能在<strong>面向考试教学</strong>中得到什么呢</h3><p>First of all,肯定是一个美妙且不错的成绩，起码是可以过关的，对于课程有一些理解的同学一定是可以拿高分的。</p>
+<p>Second,对这门课程的考试经验上有本质上的提升，因为已经考过一次了，准备补考应该也是相当的有把握了。开玩笑，实际上应该是对整个课程最重点的地方有了一些清晰的认知，对整个课程的简要情况应该是了解了，如果更加的理解的话，有些学科当中的思想应该是会慢慢的融入生活中的。譬如在排队啊什么分东西上面，会自然而然地想到什么算法啊乱七八糟的之类的，会尝试用计算机学科的思考方式去解决一些问题，我认为这是非常不错的，不知道是不是我刻意而为之，我经常会这么想，而且筛选算法和解决问题方法的过程应该是有用且对问题的解决是有效率的</p>
+<p>Third，如果第二点的后半部分没有引起共鸣的话，基于考前临时抱佛脚，你或许会对计算机课程的学习产生抵触的情绪，而且这些课程基本都是应该在大二或者大三的上学期才会有安排，抵触情绪可能会影响到后面的学习</p>
+<p>Forth,应该是这么拼写的把，错了的话就是少了个u，<strong>面向考试</strong> 这个词语本来就看起来没那么有用，对未来的工作肯定是没多大用，所以不要期待在学校的教学里能出现让你学会工作的事情。除了让你提前适应机械化的实验内容，长时间的让你做没有意义的实验以外，我倒是觉得这是提前适应996的一个考验吧。</p>
+<p>如果在我们这个学校毕业就能找到一份与专业相关的还算可以的工作的话，985211似乎也没什么存在的必要了，还有就是学校安排的各种教培机构，看了就知道，两个分支嘛</p>
+<ol>
+<li>考研强化</li>
+<li>就业强化</li>
+</ol>
+<p>考研就不说了，就业强化就是让你在几个月内做上几个项目，有履历刻写，然后学上大学四年都不会教你的实际就业技能，然后出去拿offer，然后上班</p>
+<h2 id="总而言之"><a href="#总而言之" class="headerlink" title="总而言之"></a>总而言之</h2><p>就是为了拿那么个毕业证</p>
+<h4 id="话外音"><a href="#话外音" class="headerlink" title="话外音"></a>话外音</h4><p>上面码了这么多的字就是想试试<strong>markdown</strong>这个语言，毕竟打算开始更新博客了，2024年了也该开始考研了，希望以后能用这个软件慢慢的记录自己的学习生活把，你别说还挺好用的。就这样。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://example.com/2024/01/07/%E5%9B%A0%E4%B8%BA%E5%A4%AA%E6%97%A0%E8%81%8A%E6%89%80%E4%BB%A5%E6%83%B3%E5%86%99%E4%B8%80%E7%82%B9%E4%BB%80%E4%B9%88%E4%B8%9C%E8%A5%BF/">http://example.com/2024/01/07/%E5%9B%A0%E4%B8%BA%E5%A4%AA%E6%97%A0%E8%81%8A%E6%89%80%E4%BB%A5%E6%83%B3%E5%86%99%E4%B8%80%E7%82%B9%E4%BB%80%E4%B9%88%E4%B8%9C%E8%A5%BF/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2024/01/07/2024%E5%B9%B41%E6%9C%886%E6%97%A5/">2024年1月6日 因为太无聊所以想写一点什么东西</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
